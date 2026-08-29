@@ -3,6 +3,13 @@ import type { TranslationKey } from "../../../i18n/types";
 export type TimelineEventType = "school" | "work";
 export type TimelineNodePosition = "above" | "below";
 
+export type TimelineEventDetailImage = {
+  imageSrc?: string;
+  imageSrcKey?: TranslationKey;
+  imageAltKey: TranslationKey;
+  captionKey?: TranslationKey;
+};
+
 export type TimelineEvent = {
   id: string;
   startYear: number;
@@ -11,6 +18,7 @@ export type TimelineEvent = {
   descriptionKey: TranslationKey;
   locationKey?: TranslationKey;
   detailKeys: TranslationKey[];
+  detailImages?: TimelineEventDetailImage[];
   highlightKeys?: TranslationKey[];
   type: TimelineEventType;
   connectToEventIds: string[] | null;

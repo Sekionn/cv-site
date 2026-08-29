@@ -1,4 +1,6 @@
-export const en = {
+import type { TranslationDictionary } from "./types";
+
+export const en: TranslationDictionary = {
   "language.toggleLabel": "Switch language to Danish",
   "language.currentAbbr": "EN",
 
@@ -17,6 +19,7 @@ export const en = {
 
   "timeline.detail.closeLabel": "Close timeline detail",
   "timeline.detail.highlightsLabel": "Highlights",
+  "timeline.detail.openImageLabel": "Open larger image:",
   "timeline.filter.title": "Show",
   "timeline.filter.toggleLabel": "Open timeline filters",
   "timeline.type.school": "Education",
@@ -114,4 +117,29 @@ export const en = {
   "timeline.softwareDevelopment.highlight.databaseTypes": "Database types",
   "timeline.softwareDevelopment.highlight.softwareQuality": "Software quality",
   "timeline.softwareDevelopment.highlight.testing": "Testing",
+
+  "timeline.domstolsstyrelsen.title": "Pending Student Software Developer",
+  "timeline.domstolsstyrelsen.description": "I was offered the student software developer job, but the security clearance took too long.",
+  "timeline.domstolsstyrelsen.location": "Danish Court Administration, Copenhagen",
+  "timeline.domstolsstyrelsen.detail.period": "November 2025 - July 2026.",
+  "timeline.domstolsstyrelsen.detail.vente": "I was offered the job as a student software developer, but the security clearance from PET took too long. It was therefore decided that too little time would be left on the potential contract for it to make sense to hire me.",
+  "timeline.domstolsstyrelsen.detail.stillingsstop": "The position was set to end at the end of 2026.",
+  "timeline.domstolsstyrelsen.detail.proof": "Before the hiring process began, I started teaching myself backend development with Java and Spring Boot. I have continued with that, and now primarily use it for my backends.",
+  "timeline.domstolsstyrelsen.detail.springboot": "Below, there is an image from the head of unit describing his view of the process and of me as a potential hire.",
+  "timeline.domstolsstyrelsen.detail.proofpath": "/images/documentation/bevis-fra-domstolstyrelsen.PNG",
+  "timeline.domstolsstyrelsen.detail.proofAlt": "Message from the head of unit about the hiring process.",
+  "timeline.domstolsstyrelsen.highlight.java": "Java",
+  "timeline.domstolsstyrelsen.highlight.springboot": "springboot",
+  "timeline.domstolsstyrelsen.highlight.backend": "Backend",
+
+  "timeline.boulders.title": "Part-time position in climbing gyms",
+  "timeline.boulders.description": "Responsible for an entire climbing gym for 7.5 hours a couple of times a week.",
+  "timeline.boulders.location": "Boulders, Copenhagen",
+  "timeline.boulders.detail.period": "July 2026 - Present",
+  "timeline.boulders.detail.opgaver": "I now work for a chain of climbing gyms, where I am responsible for the entire gym, usually alone and sometimes with support for a couple of hours.",
+  "timeline.boulders.detail.proof": "I am responsible for making sure all tasks are completed and that customers receive good service.",
+  "timeline.boulders.detail.kaffejoke": "This includes making coffee with good latte art, an art I am still working on, which every software company naturally needs people who can do.",
+  "timeline.boulders.highlight.Latteart": "Latte art",
+  "timeline.boulders.highlight.Klatring": "Climbing",
+  "timeline.boulders.highlight.selvstændighed": "Independence",
 } as const;

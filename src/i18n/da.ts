@@ -1,6 +1,4 @@
-import type { TranslationDictionary } from "./types";
-
-export const da: TranslationDictionary = {
+export const da = {
   "language.toggleLabel": "Skift sprog til engelsk",
   "language.currentAbbr": "DA",
 
@@ -19,6 +17,7 @@ export const da: TranslationDictionary = {
 
   "timeline.detail.closeLabel": "Luk tidslinjedetalje",
   "timeline.detail.highlightsLabel": "Højdepunkter",
+  "timeline.detail.openImageLabel": "Åbn større billede:",
   "timeline.filter.title": "Vis",
   "timeline.filter.toggleLabel": "Åbn tidslinjefiltre",
   "timeline.type.school": "Uddannelse",
@@ -86,16 +85,16 @@ export const da: TranslationDictionary = {
   "timeline.egAjour.highlight.crossPlatformApp": "Cross-platform app",
 
   "timeline.clever.title": "Softwareudvikler",
-  "timeline.clever.description": "Backend softwareudvikling på Clevers self-help business portal.",
+  "timeline.clever.description": "Backend softwareudvikling på Clevers selvhjælp virksomhed portal.",
   "timeline.clever.location": "Clever A/S, København",
   "timeline.clever.detail.period": "August 2024 - juli 2025.",
-  "timeline.clever.detail.portal": "Arbejdede på backenddelen af Clevers self-help business portal.",
-  "timeline.clever.detail.firstSelfHelp": "Skabte nye featureløsninger, som systemet ikke havde haft før, inklusive portalens første self-help service.",
+  "timeline.clever.detail.portal": "Arbejdede på backenddelen af Clevers selvhjælp virksomhed portal.",
+  "timeline.clever.detail.firstSelfHelp": "Skabte nye featureløsninger, som systemet ikke havde haft før, inklusive portalens første selvhjælp service.",
   "timeline.clever.detail.stack": "Arbejdede primært med C# og SQL.",
   "timeline.clever.highlight.csharp": "C#",
   "timeline.clever.highlight.sql": "SQL",
   "timeline.clever.highlight.backend": "Backend",
-  "timeline.clever.highlight.selfHelp": "Self-help service",
+  "timeline.clever.highlight.selfHelp": "selvhjælp service",
 
   "timeline.itSecurity.title": "IT-sikkerhed",
   "timeline.itSecurity.description": "IT-sikkerhedsstudier med netværkssikkerhed, systemsikkerhed og anvendt kryptografi.",
@@ -116,4 +115,29 @@ export const da: TranslationDictionary = {
   "timeline.softwareDevelopment.highlight.databaseTypes": "Databasetyper",
   "timeline.softwareDevelopment.highlight.softwareQuality": "Softwarekvalitet",
   "timeline.softwareDevelopment.highlight.testing": "Test",
+
+  "timeline.domstolsstyrelsen.title": "Ventende studerende Softwareudvikler",
+  "timeline.domstolsstyrelsen.description": "Blev tilbudt jobbet som studerende softwareudvikler. Men sikkerhedsgodkendelse tog for lang tid.",
+  "timeline.domstolsstyrelsen.location": "Domstolsstyrelsen, københavn",
+  "timeline.domstolsstyrelsen.detail.period": "November 2025 - juli 2026.",
+  "timeline.domstolsstyrelsen.detail.vente": "Blev tilbudt jobbet som studerende softwareudvikler. Men sikkerhedsgodkendelsen fra PET, tog for lang tid, så det blev besluttet at der var for kort tid tilbage på den potentielle kontrakt til at det gav mening at ansætte mig.",
+  "timeline.domstolsstyrelsen.detail.stillingsstop": "Stillingen skulle slutte med udgangen af 2026.",
+  "timeline.domstolsstyrelsen.detail.proof": "Siden før ansættelses processen gik igang, gik jeg igang med at lære mig selv at programmere backend med java og springboot, dette er jeg fortsat med og bruger jeg primært til mine backends nu.",
+  "timeline.domstolsstyrelsen.detail.springboot": "herunder kan der ses et billede fra enhedschefen, som beskriver hans holdning til processen og mig som potentiel ansættelse.",
+  "timeline.domstolsstyrelsen.detail.proofpath": "/images/documentation/bevis-fra-domstolstyrelsen.PNG",
+  "timeline.domstolsstyrelsen.detail.proofAlt": "Besked fra enhedschefen om ansættelsesprocessen.",
+  "timeline.domstolsstyrelsen.highlight.java": "Java",
+  "timeline.domstolsstyrelsen.highlight.springboot": "springboot",
+  "timeline.domstolsstyrelsen.highlight.backend": "Backend",
+
+  "timeline.boulders.title": "deltids stilling i klatrehaller",
+  "timeline.boulders.description": "Ansvar for en hel klatrehal i 7,5 time et par gange om ugen.",
+  "timeline.boulders.location": "Boulders, københavn",
+  "timeline.boulders.detail.period": "Juli 2026 - Nu",
+  "timeline.boulders.detail.opgaver": "Jeg arbejder nu for en kæde af klatrehaller, her er jeg ansvarlig for hele hallen oftest alene, nogengange med support i et par timer.",
+  "timeline.boulders.detail.proof": "Har ansvaret for at få udført alle opgaver, og at sørge for at kunderne får en god service.",
+  "timeline.boulders.detail.kaffejoke": "Dette indebærer at lave kaffe med god latte art (arbejder stadig på kunsten), som enhver software virksomhed jo har brug for folk der kan.",
+  "timeline.boulders.highlight.Latteart": "Latte art",
+  "timeline.boulders.highlight.Klatring": "Klatring",
+  "timeline.boulders.highlight.selvstændighed": "selvstændighed",
 };

@@ -1,5 +1,5 @@
-import type { en } from "./en";
+import type { da } from "./da";
 
 export type Language = "en" | "da";
-export type TranslationKey = keyof typeof en;
+export type TranslationKey = keyof typeof da;
 export type TranslationDictionary = Record<TranslationKey, string>;

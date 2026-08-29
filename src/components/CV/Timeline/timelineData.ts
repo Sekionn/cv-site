@@ -4,7 +4,7 @@ import type { TimelineEvent, TimelineTravelerImage } from "./timelineTypes";
 // placement.yPercent moves the note vertically across the map.
 // connectToEventIds controls route lines from this node. Use null when the route ends.
 // nodePosition controls whether the route node is above or below the note.
-export const timelineEvents: TimelineEvent[] = [
+export const schoolTimelineEvents: TimelineEvent[] = [
   {
     id: "school-htx",
     startYear: 2015,
@@ -80,6 +80,60 @@ export const timelineEvents: TimelineEvent[] = [
       yPercent: 33,
     },
   },
+  {
+    id: "school-it-security",
+    startYear: 2025,
+    endYear: 2026,
+    titleKey: "timeline.itSecurity.title",
+    descriptionKey: "timeline.itSecurity.description",
+    locationKey: "timeline.itSecurity.location",
+    detailKeys: [
+      "timeline.itSecurity.detail.period",
+      "timeline.itSecurity.detail.security",
+      "timeline.itSecurity.detail.crypto",
+    ],
+    highlightKeys: [
+      "timeline.itSecurity.highlight.networkSecurity",
+      "timeline.itSecurity.highlight.systemSecurity",
+      "timeline.itSecurity.highlight.cryptography",
+    ],
+    type: "school",
+    connectToEventIds: ["school-software-development"],
+    nodePosition: "below",
+    yFactor: 0.55,
+    placement: {
+      xFactor: 0.6,
+      yPercent: 37,
+    },
+  },
+  {
+    id: "school-software-development",
+    startYear: 2026,
+    titleKey: "timeline.softwareDevelopment.title",
+    descriptionKey: "timeline.softwareDevelopment.description",
+    locationKey: "timeline.softwareDevelopment.location",
+    detailKeys: [
+      "timeline.softwareDevelopment.detail.period",
+      "timeline.softwareDevelopment.detail.databases",
+      "timeline.softwareDevelopment.detail.quality",
+    ],
+    highlightKeys: [
+      "timeline.softwareDevelopment.highlight.databaseTypes",
+      "timeline.softwareDevelopment.highlight.softwareQuality",
+      "timeline.softwareDevelopment.highlight.testing",
+    ],
+    type: "school",
+    connectToEventIds: null,
+    nodePosition: "below",
+    yFactor: -0.35,
+    placement: {
+      xFactor: 0.5,
+      yPercent: 82,
+    },
+  },
+];
+
+export const workTimelineEvents: TimelineEvent[] = [
   {
     id: "work-netto",
     startYear: 2020,
@@ -181,7 +235,7 @@ export const timelineEvents: TimelineEvent[] = [
       "timeline.clever.highlight.selfHelp",
     ],
     type: "work",
-    connectToEventIds: null,
+    connectToEventIds: ["work-danish-judicial-system-waiting"],
     nodePosition: "above",
     yFactor: 7,
     placement: {
@@ -190,56 +244,70 @@ export const timelineEvents: TimelineEvent[] = [
     },
   },
   {
-    id: "school-it-security",
+    id: "work-danish-judicial-system-waiting",
     startYear: 2025,
     endYear: 2026,
-    titleKey: "timeline.itSecurity.title",
-    descriptionKey: "timeline.itSecurity.description",
-    locationKey: "timeline.itSecurity.location",
+    titleKey: "timeline.domstolsstyrelsen.title",
+    descriptionKey: "timeline.domstolsstyrelsen.description",
+    locationKey: "timeline.domstolsstyrelsen.location",
     detailKeys: [
-      "timeline.itSecurity.detail.period",
-      "timeline.itSecurity.detail.security",
-      "timeline.itSecurity.detail.crypto",
+      "timeline.domstolsstyrelsen.detail.period",
+      "timeline.domstolsstyrelsen.detail.vente",
+      "timeline.domstolsstyrelsen.detail.stillingsstop",
+      "timeline.domstolsstyrelsen.detail.proof",
+      "timeline.domstolsstyrelsen.detail.springboot",
+    ],
+    detailImages: [
+      {
+        imageSrcKey: "timeline.domstolsstyrelsen.detail.proofpath",
+        imageAltKey: "timeline.domstolsstyrelsen.detail.proofAlt",
+      },
     ],
     highlightKeys: [
-      "timeline.itSecurity.highlight.networkSecurity",
-      "timeline.itSecurity.highlight.systemSecurity",
-      "timeline.itSecurity.highlight.cryptography",
+      "timeline.domstolsstyrelsen.highlight.java",
+      "timeline.domstolsstyrelsen.highlight.springboot",
+      "timeline.domstolsstyrelsen.highlight.backend",
     ],
-    type: "school",
-    connectToEventIds: ["school-software-development"],
-    nodePosition: "below",
-    yFactor: 0.55,
-    placement: {
-      xFactor: 0.6,
-      yPercent: 37,
-    },
-  },
-  {
-    id: "school-software-development",
-    startYear: 2026,
-    titleKey: "timeline.softwareDevelopment.title",
-    descriptionKey: "timeline.softwareDevelopment.description",
-    locationKey: "timeline.softwareDevelopment.location",
-    detailKeys: [
-      "timeline.softwareDevelopment.detail.period",
-      "timeline.softwareDevelopment.detail.databases",
-      "timeline.softwareDevelopment.detail.quality",
-    ],
-    highlightKeys: [
-      "timeline.softwareDevelopment.highlight.databaseTypes",
-      "timeline.softwareDevelopment.highlight.softwareQuality",
-      "timeline.softwareDevelopment.highlight.testing",
-    ],
-    type: "school",
-    connectToEventIds: null,
+    type: "work",
+    connectToEventIds: ["work-boulders"],
     nodePosition: "below",
     yFactor: -0.35,
     placement: {
       xFactor: 0.5,
-      yPercent: 82,
+      yPercent: 90,
     },
   },
+  {
+    id: "work-boulders",
+    startYear: 2026,
+    titleKey: "timeline.boulders.title",
+    descriptionKey: "timeline.boulders.description",
+    locationKey: "timeline.boulders.location",
+    detailKeys: [
+      "timeline.boulders.detail.period",
+      "timeline.boulders.detail.opgaver",
+      "timeline.boulders.detail.proof",
+      "timeline.boulders.detail.kaffejoke",
+    ],
+    highlightKeys: [
+      "timeline.boulders.highlight.Latteart",
+      "timeline.boulders.highlight.Klatring",
+      "timeline.boulders.highlight.selvstændighed",
+    ],
+    type: "work",
+    connectToEventIds: null,
+    nodePosition: "above",
+    yFactor: -0.35,
+    placement: {
+      xFactor: 0.5,
+      yPercent: 5,
+    },
+  },
+];
+
+export const timelineEvents: TimelineEvent[] = [
+  ...schoolTimelineEvents,
+  ...workTimelineEvents,
 ];
 
 // Add imageSrc when transparent cutouts are ready, for example: "/images/timeline/me-2018.png".

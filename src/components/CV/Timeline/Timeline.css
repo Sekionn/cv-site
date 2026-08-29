@@ -623,6 +623,121 @@
   line-height: 1.55;
 }
 
+.timeline-detail-image {
+  width: min(100%, 520px);
+  margin: 4px 0 2px;
+  padding: 8px;
+  border: 1px solid rgba(83, 55, 27, 0.28);
+  border-radius: 2px;
+  background: rgba(255, 247, 221, 0.2);
+  box-shadow: 0 10px 18px rgba(42, 25, 12, 0.16);
+}
+
+.timeline-detail-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 1px;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.timeline-detail-image-button:focus-visible {
+  outline: 2px solid #6c251d;
+  outline-offset: 4px;
+}
+
+.timeline-detail-image img,
+.timeline-image-viewer img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 1px;
+}
+
+.timeline-detail-image img {
+  max-height: 420px;
+}
+
+.timeline-detail-image figcaption {
+  margin-top: 7px;
+  color: rgba(45, 34, 22, 0.62);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.timeline-image-viewer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 11;
+  display: grid;
+  place-items: center;
+  padding: clamp(14px, 3vw, 34px);
+  box-sizing: border-box;
+  background: rgba(9, 7, 5, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.timeline-image-viewer {
+  position: relative;
+  width: min(1120px, 100%);
+  max-height: calc(100dvh - 28px);
+  padding: clamp(10px, 2vw, 16px);
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba(83, 55, 27, 0.42);
+  border-radius: 2px;
+  background: #e7d09b;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.42) inset,
+    0 28px 70px rgba(0, 0, 0, 0.58);
+}
+
+.timeline-image-viewer img {
+  max-height: calc(100dvh - 104px);
+}
+
+.timeline-image-viewer figcaption {
+  margin-top: 10px;
+  color: rgba(45, 34, 22, 0.72);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.timeline-image-viewer-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(83, 55, 27, 0.42);
+  border-radius: 50%;
+  color: #21170e;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  background: rgba(231, 208, 155, 0.86);
+  box-shadow: 0 4px 12px rgba(42, 25, 12, 0.22);
+  cursor: pointer;
+}
+
+.timeline-image-viewer-close:hover,
+.timeline-image-viewer-close:focus-visible {
+  border-color: rgba(83, 55, 27, 0.72);
+  background: rgba(255, 247, 221, 0.92);
+}
+
+.timeline-image-viewer-close:focus-visible {
+  outline: 2px solid #6c251d;
+  outline-offset: 3px;
+}
+
 .timeline-detail-highlights {
   display: flex;
   flex-wrap: wrap;
