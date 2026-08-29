@@ -1,12 +1,10 @@
-import { useState } from "react";
-
-import "./RoadmapContainer.css"
+import Timeline from "../Timeline/Timeline";
+import "./RoadmapContainer.css";
 
 export default function RoadmapContainer() {
-    
-    return (
-        <div id="vw-roadmap" className="rm-container auto-width auto-height">
-            
-        </div>
-    );
+  return (
+    <div id="vw-roadmap" className="rm-container">
+      <Timeline />
+    </div>
+  );
 }
