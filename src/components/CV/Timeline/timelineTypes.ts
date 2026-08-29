@@ -1,15 +1,20 @@
+import type { TranslationKey } from "../../../i18n/types";
+
 export type TimelineEventType = "school" | "work";
+export type TimelineNodePosition = "above" | "below";
 
 export type TimelineEvent = {
   id: string;
   startYear: number;
   endYear?: number;
-  title: string;
-  description: string;
-  location?: string;
-  details: string[];
-  highlights?: string[];
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
+  locationKey?: TranslationKey;
+  detailKeys: TranslationKey[];
+  highlightKeys?: TranslationKey[];
   type: TimelineEventType;
+  connectToEventIds: string[] | null;
+  nodePosition?: TimelineNodePosition;
   yFactor: number;
   placement?: {
     xFactor?: number;
@@ -20,7 +25,7 @@ export type TimelineEvent = {
 export type TimelineTravelerImage = {
   id: string;
   imageSrc?: string;
-  imageAlt?: string;
+  imageAltKey?: TranslationKey;
   placement: {
     xPercent: number;
     yPercent: number;

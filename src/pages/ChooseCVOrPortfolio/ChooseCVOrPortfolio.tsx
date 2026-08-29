@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
 import "./ChooseCVOrPortfolio.css"
 
 export default function ChooseCVOrPortfolio() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleMouseMove = async (e: React.MouseEvent<HTMLElement>) => {
     try {
@@ -34,7 +36,7 @@ export default function ChooseCVOrPortfolio() {
         }}
         onClick={() => navigate("/curriculum-vitae")}
       >
-        CV
+        {t("choice.cv")}
       </div>
 
       <div className="random-button black-text"
@@ -44,7 +46,7 @@ export default function ChooseCVOrPortfolio() {
         }}
         onClick={() => navigate("/portfolio")}
       >
-        Portfolio
+        {t("choice.portfolio")}
       </div>
     </div>
   );

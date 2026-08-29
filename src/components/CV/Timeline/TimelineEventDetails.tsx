@@ -1,3 +1,4 @@
+import { useLanguage } from "../../../context/LanguageContext";
 import type { TimelineEvent } from "./timelineTypes";
 
 type TimelineEventDetailsProps = {
@@ -9,6 +10,9 @@ export default function TimelineEventDetails({
   event,
   onClose,
 }: TimelineEventDetailsProps) {
+  const { t } = useLanguage();
+  const title = t(event.titleKey);
+
   return (
     <div className="timeline-detail-backdrop" role="presentation">
       <article
@@ -20,50 +24,59 @@ export default function TimelineEventDetails({
         <button
           className="timeline-detail-close"
           type="button"
-          aria-label="Close timeline detail"
+          aria-label={t("timeline.detail.closeLabel")}
           onClick={onClose}
         >
           x
         </button>
 
-        <span className="timeline-detail-type">{event.type}</span>
+        <span className="timeline-detail-type">
+          {t(event.type === "school" ? "timeline.type.school" : "timeline.type.work")}
+        </span>
         <time className="timeline-detail-time" dateTime={String(event.startYear)}>
           {formatDateLabel(event)}
         </time>
-        <h2 id="timeline-detail-title">{event.title}</h2>
+        <h2 id="timeline-detail-title">{title}</h2>
 
-        {event.location ? (
-          <p className="timeline-detail-location">{event.location}</p>
+        {event.locationKey ? (
+          <p className="timeline-detail-location">
+            {t(event.locationKey)}
+          </p>
         ) : null}
 
-        <p className="timeline-detail-summary">{event.description}</p>
+        <p className="timeline-detail-summary">
+          {t(event.descriptionKey)}
+        </p>
 
         <div className="timeline-detail-body">
-          {event.details.map((detail) => (
-            <p key={detail}>{detail}</p>
+          {event.detailKeys.map((detailKey) => (
+            <p key={detailKey}>{t(detailKey)}</p>
           ))}
         </div>
 
-        {event.highlights?.length ? (
-          <ul className="timeline-detail-highlights" aria-label="Highlights">
-            {event.highlights.map((highlight) => (
-              <li key={highlight}>{highlight}</li>
+        {event.highlightKeys?.length ? (
+          <ul
+            className="timeline-detail-highlights"
+            aria-label={t("timeline.detail.highlightsLabel")}
+          >
+            {event.highlightKeys.map((highlightKey) => (
+              <li key={highlightKey}>{t(highlightKey)}</li>
             ))}
           </ul>
         ) : null}
       </article>
     </div>
   );
-}
 
-function formatDateLabel(event: TimelineEvent) {
-  if (!event.endYear) {
-    return `${event.startYear} - Present`;
+  function formatDateLabel(timelineEvent: TimelineEvent) {
+    if (!timelineEvent.endYear) {
+      return `${timelineEvent.startYear} - ${t("common.present")}`;
+    }
+
+    if (timelineEvent.startYear === timelineEvent.endYear) {
+      return String(timelineEvent.startYear);
+    }
+
+    return `${timelineEvent.startYear} - ${timelineEvent.endYear}`;
   }
-
-  if (event.startYear === event.endYear) {
-    return String(event.startYear);
-  }
-
-  return `${event.startYear} - ${event.endYear}`;
 }

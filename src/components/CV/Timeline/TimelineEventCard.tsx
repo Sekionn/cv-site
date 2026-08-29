@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { useLanguage } from "../../../context/LanguageContext";
 import type {
   RegisterTimelineNode,
   TimelineEvent,
@@ -21,15 +22,17 @@ export default function TimelineEventCard({
   onSelect,
   registerNode,
 }: TimelineEventCardProps) {
+  const { t } = useLanguage();
   const dateLabel = formatDateLabel(event);
-  const cardPosition = event.type === "school" ? "above" : "below";
+  const nodePosition =
+    event.nodePosition ?? (event.type === "school" ? "below" : "above");
   const cardStyle = {
     "--card-rotation": `${event.yFactor * 1.8}deg`,
   } as CSSProperties & Record<"--card-rotation", string>;
 
   return (
     <div
-      className={`timeline-event timeline-event--${event.type} timeline-event--${cardPosition}`}
+      className={`timeline-event timeline-event--${event.type} timeline-event--node-${nodePosition}`}
       style={{
         left: `${left}%`,
         top: `${top}%`,
@@ -45,8 +48,13 @@ export default function TimelineEventCard({
         }}
       >
         <time dateTime={String(event.startYear)}>{dateLabel}</time>
-        <h3>{event.title}</h3>
-        <p>{event.description}</p>
+        <h3>{t(event.titleKey)}</h3>
+        {event.locationKey ? (
+          <span className="timeline-card-location">
+            {t(event.locationKey)}
+          </span>
+        ) : null}
+        <p>{t(event.descriptionKey)}</p>
       </button>
 
       <div
@@ -57,16 +65,16 @@ export default function TimelineEventCard({
       />
     </div>
   );
-}
 
-function formatDateLabel(event: TimelineEvent) {
-  if (!event.endYear) {
-    return `${event.startYear} - Present`;
+  function formatDateLabel(timelineEvent: TimelineEvent) {
+    if (!timelineEvent.endYear) {
+      return `${timelineEvent.startYear} - ${t("common.present")}`;
+    }
+
+    if (timelineEvent.startYear === timelineEvent.endYear) {
+      return String(timelineEvent.startYear);
+    }
+
+    return `${timelineEvent.startYear} - ${timelineEvent.endYear}`;
   }
-
-  if (event.startYear === event.endYear) {
-    return String(event.startYear);
-  }
-
-  return `${event.startYear} - ${event.endYear}`;
 }

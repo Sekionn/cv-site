@@ -48,6 +48,39 @@ body {
   height: 100%;
 }
 
+.language-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 34px;
+  border: 1px solid rgba(83, 55, 27, 0.42);
+  border-radius: 2px;
+  color: #21170e;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  background:
+    radial-gradient(circle at 20% 24%, rgba(113, 67, 27, 0.12), transparent 24%),
+    #e3cc98;
+  box-shadow: 0 8px 16px rgba(42, 25, 12, 0.24);
+  cursor: pointer;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  border-color: rgba(83, 55, 27, 0.72);
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid #6c251d;
+  outline-offset: 3px;
+}
+
 .roadmap-page {
   width: 100%;
   height: 100dvh;

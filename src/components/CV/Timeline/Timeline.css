@@ -31,11 +31,217 @@
 }
 
 .timeline-scroll-container {
+  position: relative;
   width: 100%;
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0;
+  scrollbar-width: none;
+}
+
+.timeline-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-filter {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+}
+
+.timeline-filter-button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  border: 1px solid rgba(39, 25, 13, 0.48);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 28% 20%, rgba(255, 244, 206, 0.34), transparent 42%),
+    rgba(91, 64, 34, 0.38);
+  box-shadow:
+    0 1px 0 rgba(255, 240, 204, 0.36) inset,
+    0 7px 18px rgba(39, 25, 13, 0.24);
+  cursor: pointer;
+}
+
+.timeline-filter-button span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 2px 0;
+  border-radius: 999px;
+  background: #21170e;
+}
+
+.timeline-filter-button:hover,
+.timeline-filter-button:focus-visible,
+.timeline-filter-button[aria-expanded="true"] {
+  border-color: rgba(33, 23, 14, 0.76);
+  background:
+    radial-gradient(circle at 28% 20%, rgba(255, 244, 206, 0.44), transparent 42%),
+    rgba(91, 64, 34, 0.52);
+}
+
+.timeline-filter-button:focus-visible {
+  outline: 2px solid #6c251d;
+  outline-offset: 3px;
+}
+
+.timeline-filter-panel {
+  position: absolute;
+  top: 56px;
+  left: 2px;
+  width: 232px;
+  padding: 18px 16px 16px;
+  border: 1px solid rgba(62, 39, 19, 0.48);
+  border-radius: 2px;
+  color: #21170e;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(91, 52, 23, 0.13), transparent 21%),
+    radial-gradient(circle at 84% 72%, rgba(255, 244, 206, 0.22), transparent 26%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.26), transparent 36%),
+    #e7d09b;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.42) inset,
+    0 2px 0 rgba(83, 55, 27, 0.13),
+    0 18px 28px rgba(42, 25, 12, 0.34);
+  transform: rotate(-0.65deg);
+  transform-origin: 22px 0;
+}
+
+.timeline-filter-panel::before {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 58px;
+  height: 19px;
+  border: 1px solid rgba(114, 83, 45, 0.16);
+  content: "";
+  background:
+    radial-gradient(circle at 24% 34%, rgba(97, 63, 27, 0.12), transparent 32%),
+    rgba(226, 199, 139, 0.6);
+  box-shadow: 0 1px 5px rgba(42, 25, 12, 0.16);
+  transform: translateX(-50%) rotate(2.5deg);
+}
+
+.timeline-filter-panel h2 {
+  padding-bottom: 9px;
+  margin: 0 0 10px;
+  border-bottom: 1px solid rgba(83, 55, 27, 0.2);
+  color: #21170e;
+  font-size: 0.88rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.timeline-filter-options {
+  display: grid;
+  gap: 7px;
+}
+
+.timeline-filter-option {
+  display: grid;
+  grid-template-columns: 18px 14px 1fr;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: rgba(45, 34, 22, 0.86);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    border-color 140ms ease,
+    background 140ms ease,
+    transform 140ms ease;
+}
+
+.timeline-filter-option input {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1px solid rgba(33, 23, 14, 0.72);
+  border-radius: 2px;
+  appearance: none;
+  background: rgba(255, 247, 221, 0.26);
+  accent-color: #21170e;
+  cursor: pointer;
+}
+
+.timeline-filter-option input:checked {
+  background:
+    linear-gradient(45deg, transparent 46%, #f4e7bf 46%, #f4e7bf 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #f4e7bf 42%, #f4e7bf 54%, transparent 54%),
+    #21170e;
+}
+
+.timeline-filter-option:hover,
+.timeline-filter-option:has(input:focus-visible) {
+  border-color: rgba(83, 55, 27, 0.26);
+  background: rgba(255, 247, 221, 0.18);
+  transform: translateX(1px);
+}
+
+.timeline-filter-option:has(input:checked) {
+  border-color: rgba(83, 55, 27, 0.32);
+  background: rgba(255, 247, 221, 0.22);
+}
+
+.timeline-filter-swatch {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.28) inset;
+}
+
+.timeline-filter-swatch--school {
+  background: #CC0000;
+}
+
+.timeline-filter-swatch--work {
+  background: #50C878;
+}
+
+.timeline-scrollbar {
+  position: absolute;
+  right: clamp(14px, 3vw, 42px);
+  bottom: 16px;
+  left: clamp(14px, 3vw, 42px);
+  z-index: 9;
+  height: 18px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.timeline-scrollbar-thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  min-width: 46px;
+  border-radius: 999px;
+  background: rgba(37, 23, 12, 0.78);
+  box-shadow:
+    0 1px 0 rgba(255, 234, 184, 0.26) inset,
+    0 2px 5px rgba(45, 24, 10, 0.28);
+}
+
+.timeline-scrollbar:hover .timeline-scrollbar-thumb,
+.timeline-scrollbar:active .timeline-scrollbar-thumb {
+  background: rgba(28, 17, 9, 0.9);
 }
 
 .timeline-container {
@@ -225,12 +431,12 @@
   border-color: #2d2216;
 }
 
-.timeline-event--above .timeline-card {
-  bottom: 32px;
+.timeline-event--node-above .timeline-card {
+  top: 32px;
 }
 
-.timeline-event--below .timeline-card {
-  top: 32px;
+.timeline-event--node-below .timeline-card {
+  bottom: 32px;
 }
 
 .timeline-card time {
@@ -251,6 +457,16 @@
   letter-spacing: 0;
 }
 
+.timeline-card-location {
+  display: block;
+  margin-bottom: 7px;
+  color: rgba(45, 34, 22, 0.66);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
 .timeline-card p {
   color: rgba(45, 34, 22, 0.82);
   font-size: 0.78rem;
@@ -264,21 +480,15 @@
   z-index: 2;
   width: 13px;
   height: 13px;
-  border: 2px solid #3f2816;
+  border: 2px solid #000;
   border-radius: 50%;
   background: var(--text-h);
-  box-shadow:
-    0 0 0 3px rgba(35, 22, 12, 0.2),
-    0 3px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
   transform: translate(-50%, -50%);
 }
 
 .timeline-node::after {
-  position: absolute;
-  inset: -7px;
-  border: 1px solid rgba(73, 43, 20, 0.42);
-  border-radius: 50%;
-  content: "";
+  content: none;
 }
 
 .timeline-event--school .timeline-node {

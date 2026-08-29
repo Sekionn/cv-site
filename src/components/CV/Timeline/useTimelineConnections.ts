@@ -4,14 +4,8 @@ import type {
   RegisterTimelineNode,
   TimelineConnection,
   TimelineEvent,
-  TimelineEventType,
 } from "./timelineTypes";
-import {
-  compareTimelineEvents,
-  getConnectionBend,
-  getNodeCenter,
-  getRouteTypes,
-} from "./timelineUtils";
+import { getConnectionBend, getNodeCenter } from "./timelineUtils";
 
 type UseTimelineConnectionsResult = {
   containerRef: React.RefObject<HTMLDivElement | null>;
@@ -40,8 +34,10 @@ export function useTimelineConnections(
     }
 
     const containerRect = container.getBoundingClientRect();
-    const nextConnections = getRouteTypes().flatMap((type) =>
-      createConnectionsForType(events, nodeRefs.current, containerRect, type),
+    const nextConnections = createConnections(
+      events,
+      nodeRefs.current,
+      containerRect,
     );
 
     setConnections(nextConnections);
@@ -95,35 +91,38 @@ export function useTimelineConnections(
   };
 }
 
-function createConnectionsForType(
+function createConnections(
   events: TimelineEvent[],
   nodeRefs: Record<string, HTMLDivElement | null>,
   containerRect: DOMRect,
-  type: TimelineEventType,
 ) {
-  const orderedEvents = events
-    .filter((event) => event.type === type)
-    .toSorted(compareTimelineEvents);
+  const eventsById = new Map(events.map((event) => [event.id, event]));
   const connections: TimelineConnection[] = [];
 
-  for (let index = 0; index < orderedEvents.length - 1; index += 1) {
-    const fromEvent = orderedEvents[index];
-    const toEvent = orderedEvents[index + 1];
+  events.forEach((fromEvent) => {
     const fromNode = nodeRefs[fromEvent.id];
-    const toNode = nodeRefs[toEvent.id];
 
-    if (!fromNode || !toNode) {
-      continue;
+    if (!fromNode || !fromEvent.connectToEventIds) {
+      return;
     }
 
-    connections.push({
-      id: `${fromEvent.id}-${toEvent.id}`,
-      type,
-      from: getNodeCenter(fromNode, containerRect),
-      to: getNodeCenter(toNode, containerRect),
-      bend: getConnectionBend(index, fromEvent, toEvent),
+    fromEvent.connectToEventIds.forEach((toEventId, index) => {
+      const toEvent = eventsById.get(toEventId);
+      const toNode = nodeRefs[toEventId];
+
+      if (!toEvent || !toNode) {
+        return;
+      }
+
+      connections.push({
+        id: `${fromEvent.id}-${toEvent.id}`,
+        type: fromEvent.type,
+        from: getNodeCenter(fromNode, containerRect),
+        to: getNodeCenter(toNode, containerRect),
+        bend: getConnectionBend(index, fromEvent, toEvent),
+      });
     });
-  }
+  });
 
   return connections;
 }
