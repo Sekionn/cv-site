@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Roadmap from "../pages/Roadmap";
 import ChooseCVOrPortfolio from "../pages/ChooseCVOrPortfolio/ChooseCVOrPortfolio";
+import Portfolio from "../pages/Portfolio/Portfolio";
 
 function AppRouter() {
   return (
@@ -19,6 +20,13 @@ function AppRouter() {
             <Roadmap />
           }
         /> 
+
+        <Route
+          path="/portfolio"
+          element={
+            <Portfolio />
+          }
+        />
         
                
       </Routes>
