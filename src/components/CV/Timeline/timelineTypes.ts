@@ -19,7 +19,7 @@ export type TimelineEvent = {
   locationKey?: TranslationKey;
   detailKeys: TranslationKey[];
   detailImages?: TimelineEventDetailImage[];
-  highlightKeys?: TranslationKey[];
+  skillKeys?: TranslationKey[];
   type: TimelineEventType;
   connectToEventIds: string[] | null;
   nodePosition?: TimelineNodePosition;

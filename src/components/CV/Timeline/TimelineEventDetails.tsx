@@ -116,14 +116,18 @@ export default function TimelineEventDetails({
             );
           })}
         </div>
+        
+        <p className="timeline-detail-skills-learned">
+          {t("timeline.detail.skills")}
+        </p>
 
-        {event.highlightKeys?.length ? (
+        {event.skillKeys?.length ? (
           <ul
-            className="timeline-detail-highlights"
-            aria-label={t("timeline.detail.highlightsLabel")}
+            className="timeline-detail-skills"
+            aria-label={t("timeline.detail.skillsLabel")}
           >
-            {event.highlightKeys.map((highlightKey) => (
-              <li key={highlightKey}>{t(highlightKey)}</li>
+            {event.skillKeys.map((skillKey) => (
+              <li key={skillKey}>{t(skillKey)}</li>
             ))}
           </ul>
         ) : null}
