@@ -111,7 +111,7 @@ export const schoolTimelineEvents: TimelineEvent[] = [
     yFactor: 0.55,
     placement: {
       xFactor: 0.6,
-      yPercent: 37,
+      yPercent: 25,
     },
   },
   {
