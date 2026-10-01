@@ -14,7 +14,7 @@ export const da = {
   "portfolio.curriculum.name": "Curriculum vitae",
   "portfolio.image.notAvailable": "Ikke tilgængelig",
   "portfolio.intro.welcome": "Velkommen til JUULS TRINKETS.",
-  "portfolio.intro.description": "Det bedste rodebord vest for Storebælt, her kan du finde alt hvad hjertet begærer.",
+  "portfolio.intro.description": "Det bedste rodebord øst for Storebælt, her kan du finde alt hvad hjertet begærer.",
   "portfolio.intro.stock": "Hvis vi har det på lager.",
   "portfolio.project.priceBot.name": "Price-bot",
   "portfolio.project.priceBot.description": "Dette er et projekt lavet specifikt til butikker i kæden 'Bog og ide'\n\n\nProgrammet bruger et excelark med data om varer, der kan købes i butikkerne.\nDet bliver derefter krydstjekket med de samme varer i 'bog og ide' onlinebutikken.\n\n\nNår processen er færdig, genererer programmet et nyt excelark med de relevante data til butiksejeren/medarbejderen,\nsom nu kan rette priser, der er forskellige mellem den fysiske butik og onlinebutikken.\n\nDu kan enten downloade projektet eller se kildekoden på min github. Der er links til begge dele nederst på denne side.",

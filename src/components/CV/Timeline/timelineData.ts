@@ -107,7 +107,7 @@ export const schoolTimelineEvents: TimelineEvent[] = [
     ],
     type: "school",
     connectToEventIds: ["school-software-development"],
-    nodePosition: "below",
+    nodePosition: "above",
     yFactor: 0.55,
     placement: {
       xFactor: 0.6,
@@ -269,7 +269,7 @@ export const workTimelineEvents: TimelineEvent[] = [
       "timeline.skill.microsoftdynamics360",
     ],
     type: "work",
-    connectToEventIds: ["work-danish-judicial-system-waiting"],
+    connectToEventIds: ["work-boulders"],
     nodePosition: "above",
     yFactor: 7,
     placement: {
@@ -277,40 +277,40 @@ export const workTimelineEvents: TimelineEvent[] = [
       yPercent: 40,
     },
   },
-  {
-    id: "work-danish-judicial-system-waiting",
-    startYear: 2025,
-    endYear: 2026,
-    titleKey: "timeline.domstolsstyrelsen.title",
-    descriptionKey: "timeline.domstolsstyrelsen.description",
-    locationKey: "timeline.domstolsstyrelsen.location",
-    detailKeys: [
-      "timeline.domstolsstyrelsen.detail.period",
-      "timeline.domstolsstyrelsen.detail.vente",
-      "timeline.domstolsstyrelsen.detail.stillingsstop",
-      "timeline.domstolsstyrelsen.detail.proof",
-      "timeline.domstolsstyrelsen.detail.springboot",
-    ],
-    detailImages: [
-      {
-        imageSrcKey: "timeline.domstolsstyrelsen.detail.proofpath",
-        imageAltKey: "timeline.domstolsstyrelsen.detail.proofAlt",
-      },
-    ],
-    skillKeys: [
-      "timeline.skill.java",
-      "timeline.skill.springboot",
-      "timeline.skill.backend",
-    ],
-    type: "work",
-    connectToEventIds: ["work-boulders"],
-    nodePosition: "below",
-    yFactor: -0.35,
-    placement: {
-      xFactor: 0.5,
-      yPercent: 90,
-    },
-  },
+  // {
+  //   id: "work-danish-judicial-system-waiting",
+  //   startYear: 2025,
+  //   endYear: 2026,
+  //   titleKey: "timeline.domstolsstyrelsen.title",
+  //   descriptionKey: "timeline.domstolsstyrelsen.description",
+  //   locationKey: "timeline.domstolsstyrelsen.location",
+  //   detailKeys: [
+  //     "timeline.domstolsstyrelsen.detail.period",
+  //     "timeline.domstolsstyrelsen.detail.vente",
+  //     "timeline.domstolsstyrelsen.detail.stillingsstop",
+  //     "timeline.domstolsstyrelsen.detail.proof",
+  //     "timeline.domstolsstyrelsen.detail.springboot",
+  //   ],
+  //   detailImages: [
+  //     {
+  //       imageSrcKey: "timeline.domstolsstyrelsen.detail.proofpath",
+  //       imageAltKey: "timeline.domstolsstyrelsen.detail.proofAlt",
+  //     },
+  //   ],
+  //   skillKeys: [
+  //     "timeline.skill.java",
+  //     "timeline.skill.springboot",
+  //     "timeline.skill.backend",
+  //   ],
+  //   type: "work",
+  //   connectToEventIds: ["work-boulders"],
+  //   nodePosition: "below",
+  //   yFactor: -0.35,
+  //   placement: {
+  //     xFactor: 0.5,
+  //     yPercent: 90,
+  //   },
+  // },
   {
     id: "work-boulders",
     startYear: 2026,

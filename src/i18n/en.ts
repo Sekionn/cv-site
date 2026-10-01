@@ -16,7 +16,7 @@ export const en: TranslationDictionary = {
   "portfolio.curriculum.name": "Curriculum vitae",
   "portfolio.image.notAvailable": "Not available",
   "portfolio.intro.welcome": "Welcome to JUULS TRINKETS.",
-  "portfolio.intro.description": "The best bargain bin west of Storebaelt, here you can find anything your heart desires.",
+  "portfolio.intro.description": "The best bargain bin east of Storebaelt, here you can find anything your heart desires.",
   "portfolio.intro.stock": "If we have it in stock.",
   "portfolio.project.priceBot.name": "Price-bot",
   "portfolio.project.priceBot.description": "This is a project specifically made for shops in the chain 'Bog og ide'\n\n\nThe program uses an excel sheet with data about purchaseable items in the shops.\nWhich then is cross referenced with the same items on the online store for 'bog og ide'.\n\n\nOnce this process is done the program generates a new excel sheet with the relevant data for the shop owner/employee,\nthat can now correct prices which are different in the physical store to the online store.\n\nYou can either download the project or look at the source code on my github. There are links to both at the bottom of this page.",
